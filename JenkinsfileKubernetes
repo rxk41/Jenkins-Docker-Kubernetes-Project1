@@ -10,14 +10,14 @@ node{
     }
     
     stage('Build Docker Image'){        
-        sh "docker build -t ameintu/jenkins-docker-k8s-project:${env.BUILD_ID} ."
+        sh "docker build -t rxk410/jenkins-docker-k8s-project:${env.BUILD_ID} ."
     }
     
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
-            sh "docker login -u ameintu -p ${DOCKER_HUB_CREDENTIALS}"
+            sh "docker login -u rxk410 -p ${DOCKER_HUB_CREDENTIALS}"
         }
-        sh "docker push ameintu/jenkins-docker-k8s-project:${env.BUILD_ID}"
+        sh "docker push rxk410/jenkins-docker-k8s-project:${env.BUILD_ID}"
     }
     
     stage("Deploy Application in K8S Cluster"){
