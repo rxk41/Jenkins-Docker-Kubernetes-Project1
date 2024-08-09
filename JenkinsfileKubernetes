@@ -1,6 +1,6 @@
 node{
     stage('SCM Checkout') {
-        git branch: 'main', credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/amit873/Jenkins-Docker-Kubernetes-Project1.git'
+        git branch: 'main', credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/rxk41/Jenkins-Docker-Kubernetes-Project1.git'
     }
     
     stage('Maven Clean Package') {
